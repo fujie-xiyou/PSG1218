@@ -11,6 +11,7 @@ name: Build OpenWrt PSG1218A
 
 on:
   repository_dispatch:
+  workflow_dispatch:
 #  release:
 #    types: published
 #  push:
@@ -18,8 +19,8 @@ on:
 #      - master
 #    paths:
 #      - '.config'
-  schedule:
-    - cron: 0 15 */25 * *
+#  schedule:
+#    - cron: 0 15 */25 * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
@@ -41,7 +42,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
 
     steps:
@@ -54,7 +55,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
