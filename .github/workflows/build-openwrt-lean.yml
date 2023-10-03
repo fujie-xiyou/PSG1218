@@ -11,6 +11,7 @@ name: Build OpenWrt PSG1218A
 
 on:
   repository_dispatch:
+  workflow_dispatch:
 #  release:
 #    types: published
 #  push:
@@ -18,8 +19,8 @@ on:
 #      - master
 #    paths:
 #      - '.config'
-  schedule:
-    - cron: 0 15 */25 * *
+#  schedule:
+#    - cron: 0 15 */25 * *
 #          分 时 日 月 周5
 #   - cron: 0 8 */3 * *
 #  watch:
@@ -41,8 +42,8 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
-
+    runs-on: ubuntu-latest
+    container: ubuntu:18.04
 
     steps:
     - name: Checkout
