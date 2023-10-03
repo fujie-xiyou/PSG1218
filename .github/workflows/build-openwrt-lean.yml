@@ -12,13 +12,13 @@ name: Build OpenWrt PSG1218A
 on:
   repository_dispatch:
   workflow_dispatch:
-#  release:
-#    types: published
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - '.config'
+  release:
+    types: published
+  push:
+    branches:
+      - master
+    paths:
+      - '.config'
 #  schedule:
 #    - cron: 0 15 */25 * *
 #          分 时 日 月 周5
